@@ -1,6 +1,6 @@
 <template>
   <div id="app" class="mt-4">
-    <Todo msg="Welcome to Your Vue.js + TypeScript App"/>
+    <Todo/>
   </div>
 </template>
 
@@ -17,4 +17,8 @@ export default class App extends Vue {}
 </script>
 
 <style>
+ul {
+  list-style-type: none;
+  padding: 0;
+}
 </style>

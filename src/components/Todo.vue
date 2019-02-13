@@ -138,14 +138,3 @@ export default class Todo extends Vue {
   @Prop() private msg!: string;
 }
 </script>
-
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-a {
-  color: #42b983;
-}
-</style>
