@@ -5,13 +5,13 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from "vue-property-decorator";
-import Todo from "./components/Todo.vue";
+import { Component, Vue } from 'vue-property-decorator';
+import Todo from './components/Todo.vue';
 
 @Component({
   components: {
-    Todo
-  }
+    Todo,
+  },
 })
 export default class App extends Vue {}
 </script>
