@@ -18,10 +18,10 @@
           </div>
           <p class="panel-tabs">
             <a class="is-active">All</a>
-            <a>Urgent</a>
             <a>Work</a>
-            <a>Home</a>
-            <a>Misc</a>
+            <a>Daily</a>
+            <a>Weekly</a>
+            <a>Monthly</a>
           </p>
           <a class="panel-block is-active">
             <span class="panel-icon">
