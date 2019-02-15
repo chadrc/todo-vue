@@ -1,5 +1,5 @@
 <template>
-  <div id="app" class="mt-4">
+  <div id="app">
     <Todo/>
   </div>
 </template>
