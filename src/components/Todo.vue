@@ -1,137 +1,63 @@
 <template>
-  <div class="container todo-app">
-    <h1 class="text-center mb-3 pb-2 border-bottom">Todo App</h1>
-    <section class="row">
-      <section class="col-4">
-        <h2 class="mb-4">Lists</h2>
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item">one</li>
-          <li class="list-group-item">two</li>
-          <li class="list-group-item">three</li>
-          <li class="list-group-item">four</li>
-          <li class="list-group-item">five</li>
-          <li class="list-group-item">six</li>
-        </ul>
+  <section class="section">
+    <section class="columns">
+      <section class="column is-one-third">
+        <header class="content">
+          <h1 class="title is-3">Todo App</h1>
+          <h2 class="subtitle is-6">Always one more thing...</h2>
+        </header>
+        <nav class="panel">
+          <p class="panel-heading">Lists</p>
+          <div class="panel-block">
+            <p class="control has-icons-left">
+              <input class="input is-small" type="text" placeholder="search">
+              <span class="icon is-small is-left">
+                <i class="fas fa-search" aria-hidden="true"></i>
+              </span>
+            </p>
+          </div>
+          <p class="panel-tabs">
+            <a class="is-active">All</a>
+            <a>Urgent</a>
+            <a>Work</a>
+            <a>Home</a>
+            <a>Misc</a>
+          </p>
+          <a class="panel-block is-active">
+            <span class="panel-icon">
+              <i class="far fa-circle" aria-hidden="true"></i>
+            </span>
+            bulma
+          </a>
+        </nav>
       </section>
-      <section class="col">
-        <h2 class="mb-4">Selected List</h2>
-        <ul>
-          <li>
-            <div class="input-group mb-3">
-              <div class="input-group-prepend">
-                <div class="input-group-text">
-                  <input type="checkbox" aria-label="Checkbox for following text input">
-                </div>
-              </div>
-              <input
-                value="first"
-                type="text"
-                class="form-control"
-                aria-label="Text input with checkbox"
-              >
-              <div class="input-group-append">
-                <button class="btn btn-outline-danger" type="button" id="button-addon2">&times;</button>
-              </div>
-            </div>
-          </li>
-          <li>
-            <div class="input-group mb-3">
-              <div class="input-group-prepend">
-                <div class="input-group-text">
-                  <input type="checkbox" aria-label="Checkbox for following text input">
-                </div>
-              </div>
-              <input
-                value="second"
-                type="text"
-                class="form-control"
-                aria-label="Text input with checkbox"
-              >
-              <div class="input-group-append">
-                <button class="btn btn-outline-danger" type="button" id="button-addon2">&times;</button>
-              </div>
-            </div>
-          </li>
-          <li>
-            <div class="input-group mb-3">
-              <div class="input-group-prepend">
-                <div class="input-group-text">
-                  <input type="checkbox" aria-label="Checkbox for following text input">
-                </div>
-              </div>
-              <input
-                value="third"
-                type="text"
-                class="form-control"
-                aria-label="Text input with checkbox"
-              >
-              <div class="input-group-append">
-                <button class="btn btn-outline-danger" type="button" id="button-addon2">&times;</button>
-              </div>
-            </div>
-          </li>
-          <li>
-            <div class="input-group mb-3">
-              <div class="input-group-prepend">
-                <div class="input-group-text">
-                  <input type="checkbox" aria-label="Checkbox for following text input">
-                </div>
-              </div>
-              <input
-                value="fourth"
-                type="text"
-                class="form-control"
-                aria-label="Text input with checkbox"
-              >
-              <div class="input-group-append">
-                <button class="btn btn-outline-danger" type="button" id="button-addon2">&times;</button>
-              </div>
-            </div>
-          </li>
-          <li>
-            <div class="input-group mb-3">
-              <div class="input-group-prepend">
-                <div class="input-group-text">
-                  <input type="checkbox" aria-label="Checkbox for following text input">
-                </div>
-              </div>
-              <input
-                value="fifth"
-                type="text"
-                class="form-control"
-                aria-label="Text input with checkbox"
-              >
-              <div class="input-group-append">
-                <button class="btn btn-outline-danger" type="button" id="button-addon2">&times;</button>
-              </div>
-            </div>
-          </li>
-          <li>
-            <div class="input-group mb-3">
-              <div class="input-group-prepend">
-                <div class="input-group-text">
-                  <input type="checkbox" aria-label="Checkbox for following text input">
-                </div>
-              </div>
-              <input
-                value="sixth"
-                type="text"
-                class="form-control"
-                aria-label="Text input with checkbox"
-              >
-              <div class="input-group-append">
-                <button class="btn btn-outline-danger" type="button" id="button-addon2">&times;</button>
-              </div>
-            </div>
-          </li>
-        </ul>
+      <section class="column">
+        <h2 class="title is-2">Selected List</h2>
+        <div>
+          <div class="field has-addons">
+            <p class="control">
+              <span class="select">
+                <select>
+                  <option>Todo</option>
+                  <option>Done</option>
+                </select>
+              </span>
+            </p>
+            <p class="control is-expanded">
+              <input class="input" value="first" type="text" aria-label="Text input with checkbox">
+            </p>
+            <p class="control">
+              <button class="button is-danger" type="button">&times;</button>
+            </p>
+          </div>
+        </div>
       </section>
     </section>
-  </div>
+  </section>
 </template>
 
 <script lang="ts">
-import { Component, Prop, Vue } from 'vue-property-decorator';
+import { Component, Prop, Vue } from "vue-property-decorator";
 
 @Component
 export default class Todo extends Vue {
