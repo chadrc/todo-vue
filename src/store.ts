@@ -9,6 +9,7 @@ export default new Vuex.Store({
   state: {
     newTodoText: "",
     selectedListIndex: 0,
+    creatingList: false,
     todoLists: [
       new TodoList("List 1", [new Todo("Todo 1.1"), new Todo("Todo 1.2")]),
       new TodoList("List 2"),
@@ -68,6 +69,9 @@ export default new Vuex.Store({
       let selectedListTodos = selectedList.todos;
       let todo = selectedListTodos.find((todo: Todo) => todo.id === todoId);
       todo.completed = completed;
+    },
+    startCreateList(state: any) {
+      state.creatingList = true;
     }
   },
   actions: {}

@@ -1,6 +1,13 @@
 <template>
   <nav class="panel">
-    <p class="panel-heading">Lists</p>
+    <p class="panel-heading">
+      Lists
+      <button class="button is-primary is-small is-pulled-right" @click="startCreateList()">
+        <span class="icon">
+          <i class="fas fa-plus"/>
+        </span>
+      </button>
+    </p>
     <div class="panel-block">
       <p class="control has-icons-left">
         <input class="input is-small" type="text" placeholder="search">
@@ -34,6 +41,10 @@ import Todo from "../classes/Todo";
 export default class TodoListPanel extends Vue {
   get todoLists() {
     return this.$store.state.todoLists;
+  }
+
+  startCreateList() {
+    this.$store.commit("startCreateList");
   }
 }
 </script>
