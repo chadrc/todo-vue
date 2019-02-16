@@ -1,5 +1,5 @@
 <template>
-  <a class="panel-block is-active">
+  <a class="panel-block is-active" @click.prevent="$emit('select')">
     <span class="panel-icon">
       <i class="far fa-circle" aria-hidden="true"></i>
     </span>

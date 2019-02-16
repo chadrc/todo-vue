@@ -23,7 +23,12 @@
             <a>Weekly</a>
             <a>Monthly</a>
           </p>
-          <TodoListItem v-for="list in todoLists" :key="list.id" :list="list"/>
+          <TodoListItem
+            v-for="(list, index) in todoLists"
+            :key="list.id"
+            :list="list"
+            @select="selectList(index)"
+          />
         </nav>
       </section>
       <section class="column">
@@ -53,18 +58,19 @@ import genId from "../genId";
 export default class TodoApp extends Vue {
   selectedListIndex: number = 0;
   todoLists: TodoList[] = [
-    new TodoList("List 1"),
-    new TodoList("List 2", [
-      new Todo("Todo 2.1"),
-      new Todo("Todo 2.2"),
-      new Todo("Todo 2.3"),
-      new Todo("Todo 2.4"),
-      new Todo("Todo 2.5")
-    ]),
+    new TodoList("List 1", [new Todo("Todo 1.1"), new Todo("Todo 1.2")]),
+    new TodoList("List 2"),
     new TodoList("List 3", [
       new Todo("Todo 3.1"),
       new Todo("Todo 3.2"),
-      new Todo("Todo 3.3")
+      new Todo("Todo 3.3"),
+      new Todo("Todo 3.4"),
+      new Todo("Todo 3.5")
+    ]),
+    new TodoList("List 4", [
+      new Todo("Todo 4.1"),
+      new Todo("Todo 4.2"),
+      new Todo("Todo 4.3")
     ])
   ];
 
@@ -75,6 +81,10 @@ export default class TodoApp extends Vue {
     }
 
     return [];
+  }
+
+  selectList(index: number) {
+    this.selectedListIndex = index;
   }
 }
 </script>
