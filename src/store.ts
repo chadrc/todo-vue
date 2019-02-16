@@ -180,6 +180,10 @@ export default new Vuex.Store({
         (category: Category) => category.id === categoryId
       );
       category.name = name;
+    },
+    addCategory(state: any, name: string) {
+      let category = new Category(name);
+      state.categories.push(category);
     }
   },
   actions: {}

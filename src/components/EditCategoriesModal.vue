@@ -18,7 +18,7 @@
             >
           </p>
           <p class="control">
-            <button class="button is-primary" type="button" @click="addNewTodo()">Add</button>
+            <button class="button is-primary" type="button" @click="addCategory()">Add</button>
           </p>
         </div>
         <EditCategoryItem
@@ -43,6 +43,7 @@ import EditCategoryItem from "./EditCategoryItem.vue";
 })
 export default class EditCategoriesModal extends Vue {
   newCategoryName = "";
+
   get isActive() {
     return this.$store.state.editingCategories;
   }
@@ -53,6 +54,11 @@ export default class EditCategoriesModal extends Vue {
 
   get categories() {
     return this.$store.state.categories;
+  }
+
+  addCategory() {
+    this.$store.commit("addCategory", this.newCategoryName);
+    this.newCategoryName = "";
   }
 }
 </script>
