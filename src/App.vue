@@ -1,16 +1,16 @@
 <template>
   <div id="app">
-    <Todo/>
+    <TodoApp/>
   </div>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
-import Todo from "./components/Todo.vue";
+import TodoApp from "./components/TodoApp.vue";
 
 @Component({
   components: {
-    Todo
+    TodoApp
   }
 })
 export default class App extends Vue {}

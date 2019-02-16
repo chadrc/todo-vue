@@ -23,7 +23,7 @@ import Todo from "../classes/Todo";
 
 @Component
 export default class TodoItem extends Vue {
-  @Prop(Object) todo!: Todo;
+  @Prop(Todo) todo!: Todo;
 }
 </script>
 

@@ -13,7 +13,7 @@ import TodoList from "@/classes/TodoList";
 
 @Component
 export default class Todo extends Vue {
-  @Prop(Object) list!: TodoList;
+  @Prop(TodoList) list!: TodoList;
 }
 </script>
 

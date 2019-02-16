@@ -41,6 +41,7 @@ import { Component, Prop, Vue } from "vue-property-decorator";
 import TodoItem from "./TodoItem.vue";
 import TodoListItem from "./TodoListItem.vue";
 import TodoList from "../classes/TodoList";
+import Todo from "../classes/Todo";
 import genId from "../genId";
 
 @Component({
@@ -49,61 +50,22 @@ import genId from "../genId";
     TodoListItem
   }
 })
-export default class Todo extends Vue {
+export default class TodoApp extends Vue {
   selectedListIndex: number = 0;
   todoLists: TodoList[] = [
-    {
-      id: genId(),
-      name: "Test List 1",
-      todos: [
-        {
-          id: genId(),
-          text: "Todo 1",
-          completed: false
-        },
-        {
-          id: genId(),
-          text: "Todo 2",
-          completed: false
-        },
-        {
-          id: genId(),
-          text: "Todo 3",
-          completed: false
-        },
-        {
-          id: genId(),
-          text: "Todo 4",
-          completed: false
-        }
-      ]
-    },
-    {
-      id: genId(),
-      name: "Test List 2",
-      todos: [
-        {
-          id: genId(),
-          text: "Todo 5",
-          completed: false
-        },
-        {
-          id: genId(),
-          text: "Todo 6",
-          completed: false
-        },
-        {
-          id: genId(),
-          text: "Todo 7",
-          completed: false
-        },
-        {
-          id: genId(),
-          text: "Todo 8",
-          completed: false
-        }
-      ]
-    }
+    new TodoList("List 1"),
+    new TodoList("List 2", [
+      new Todo("Todo 2.1"),
+      new Todo("Todo 2.2"),
+      new Todo("Todo 2.3"),
+      new Todo("Todo 2.4"),
+      new Todo("Todo 2.5")
+    ]),
+    new TodoList("List 3", [
+      new Todo("Todo 3.1"),
+      new Todo("Todo 3.2"),
+      new Todo("Todo 3.3")
+    ])
   ];
 
   get selectedListTodos() {
