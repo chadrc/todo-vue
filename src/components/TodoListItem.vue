@@ -1,5 +1,5 @@
 <template>
-  <a class="panel-block is-active" @click.prevent="$emit('select')">
+  <a class="panel-block is-active" @click.prevent="selectList()">
     <span class="panel-icon" v-show="!allComplete">
       <i class="far fa-circle" aria-hidden="true"></i>
     </span>
@@ -38,6 +38,10 @@ export default class TodoListItem extends Vue {
       }
     }
     return allComplete;
+  }
+
+  selectList() {
+    this.$store.commit("selectList", this.listId);
   }
 }
 </script>

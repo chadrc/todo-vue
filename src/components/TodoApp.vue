@@ -23,12 +23,7 @@
             <a>Weekly</a>
             <a>Monthly</a>
           </p>
-          <TodoListItem
-            v-for="(list, index) in todoLists"
-            :key="list.id"
-            :listId="list.id"
-            @select="selectList(index)"
-          />
+          <TodoListItem v-for="list in todoLists" :key="list.id" :listId="list.id"/>
         </nav>
       </section>
       <section class="column">
@@ -90,10 +85,6 @@ export default class TodoApp extends Vue {
 
   get todoLists() {
     return this.$store.state.todoLists;
-  }
-
-  selectList(index: number) {
-    this.$store.commit("selectList", index);
   }
 
   addNewTodo() {

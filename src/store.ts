@@ -32,7 +32,10 @@ export default new Vuex.Store({
     }
   },
   mutations: {
-    selectList(state: any, index: number) {
+    selectList(state: any, listId: number) {
+      let index = state.todoLists.findIndex(
+        (list: TodoList) => list.id === listId
+      );
       state.selectedListIndex = index;
     },
     addTodoToSelectedList(state: any, todo: Todo) {
