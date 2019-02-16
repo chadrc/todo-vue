@@ -12,7 +12,9 @@
       <input class="input" v-model="text" type="text" aria-label="Text input with checkbox">
     </p>
     <p class="control">
-      <button class="button is-danger" type="button" @click="removeItem()">&times;</button>
+      <button class="button is-danger" type="button" @click="removeItem()">
+        <i class="fas fa-trash-alt"/>
+      </button>
     </p>
   </div>
 </template>

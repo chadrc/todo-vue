@@ -7,6 +7,14 @@
       <i class="fas fa-circle has-text-success" aria-hidden="true"></i>
     </span>
     {{ list.name }}
+    <p class="buttons edit">
+      <button class="button is-outlined is-small">
+        <i class="fas fa-edit"></i>
+      </button>
+      <button class="button is-danger is-outlined is-small">
+        <i class="fas fa-trash-alt"/>
+      </button>
+    </p>
   </a>
 </template>
 
@@ -51,4 +59,13 @@ export default class TodoListItem extends Vue {
 </script>
 
 <style scoped>
+a:hover > .edit {
+  opacity: 1;
+}
+
+.edit {
+  margin-left: auto;
+  opacity: 0;
+  transition: 0.25s;
+}
 </style>
