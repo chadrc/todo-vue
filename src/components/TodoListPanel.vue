@@ -20,8 +20,12 @@
           </div>
           <div class="dropdown-menu" id="dropdown-menu3" role="menu">
             <div class="dropdown-content">
-              <a href="#" class="dropdown-item">Food</a>
-              <a href="#" class="dropdown-item">Movies</a>
+              <a
+                href="#"
+                class="dropdown-item"
+                v-for="category in remainingCategories"
+                :key="category.id"
+              >{{ category.name }}</a>
               <hr class="dropdown-divider">
               <a href="#" class="dropdown-item">Edit</a>
             </div>
@@ -55,6 +59,10 @@ export default class TodoListPanel extends Vue {
 
   get categoriesForDisplay() {
     return this.$store.state.categories.slice(0, 4);
+  }
+
+  get remainingCategories() {
+    return this.$store.state.categories.slice(4);
   }
 }
 </script>
