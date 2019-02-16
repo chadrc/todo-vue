@@ -1,5 +1,5 @@
 <template>
-  <div class="modal" :class="{'is-active': isActive}">
+  <div class="modal is-top" :class="{'is-active': isActive}">
     <div class="modal-background"></div>
     <div class="modal-card">
       <header class="modal-card-head">

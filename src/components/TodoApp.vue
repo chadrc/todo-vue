@@ -39,8 +39,16 @@ import ConfirmDeleteModal from "./ConfirmDeleteModal.vue";
 export default class TodoApp extends Vue {}
 </script>
 
-<style>
+<style lang="scss">
 footer.modal-card-foot {
   justify-content: flex-end;
+}
+
+.modal.is-top {
+  justify-content: normal;
+
+  > .modal-card {
+    margin-top: 50px;
+  }
 }
 </style>
