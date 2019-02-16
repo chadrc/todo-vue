@@ -70,8 +70,6 @@ import genId from "../genId";
   }
 })
 export default class TodoApp extends Vue {
-  newTodoText: String = "";
-
   get selectedListTodos() {
     let todoList = this.$store.getters.selectedList;
     if (todoList) {
@@ -100,6 +98,14 @@ export default class TodoApp extends Vue {
 
   addNewTodo() {
     this.$store.commit("addTodoToSelectedList", new Todo(this.newTodoText));
+  }
+
+  get newTodoText() {
+    return this.$store.state.newTodoText;
+  }
+
+  set newTodoText(value) {
+    this.$store.commit("updateNewTodoText", value);
   }
 }
 </script>

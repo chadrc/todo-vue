@@ -7,6 +7,7 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
+    newTodoText: "",
     selectedListIndex: 0,
     todoLists: [
       new TodoList("List 1", [new Todo("Todo 1.1"), new Todo("Todo 1.2")]),
@@ -37,6 +38,11 @@ export default new Vuex.Store({
     addTodoToSelectedList(state: any, todo: Todo) {
       let selectedList = state.todoLists[state.selectedListIndex];
       selectedList.todos.push(todo);
+
+      state.newTodoText = "";
+    },
+    updateNewTodoText(state: any, text: string) {
+      state.newTodoText = text;
     }
   },
   actions: {}
