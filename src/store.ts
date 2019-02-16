@@ -72,6 +72,14 @@ export default new Vuex.Store({
     },
     startCreateList(state: any) {
       state.creatingList = true;
+    },
+    cancelCreateList(state: any) {
+      state.creatingList = false;
+    },
+    createList(state: any, data: { name: string }) {
+      let list = new TodoList(data.name);
+      state.todoLists.push(list);
+      state.creatingList = false;
     }
   },
   actions: {}
