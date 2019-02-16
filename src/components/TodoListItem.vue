@@ -1,10 +1,10 @@
 <template>
-  <a class="panel-block is-active" @click.prevent="selectList()">
+  <a class="panel-block" :class="{'is-active': isActive}" @click.prevent="selectList()">
     <span class="panel-icon" v-show="!allComplete">
-      <i class="far fa-circle" aria-hidden="true"></i>
+      <i class="far fa-circle has-text-info" aria-hidden="true"></i>
     </span>
     <span class="panel-icon" v-show="allComplete">
-      <i class="fas fa-circle" aria-hidden="true"></i>
+      <i class="fas fa-circle has-text-success" aria-hidden="true"></i>
     </span>
     {{ list.name }}
   </a>
@@ -23,6 +23,10 @@ export default class TodoListItem extends Vue {
     return this.$store.state.todoLists.find(
       (todoList: TodoList) => todoList.id === this.listId
     );
+  }
+
+  get isActive() {
+    return this.$store.getters.selectedList.id === this.listId;
   }
 
   get name() {
