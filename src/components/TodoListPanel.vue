@@ -26,7 +26,7 @@
               <a href="#" class="dropdown-item">Food</a>
               <a href="#" class="dropdown-item">Movies</a>
               <hr class="dropdown-divider">
-              <a href="#" class="dropdown-item">View All</a>
+              <a href="#" class="dropdown-item">Edit</a>
             </div>
           </div>
         </div>
@@ -59,8 +59,8 @@ export default class TodoListPanel extends Vue {
 </script>
 
 <style scoped lang="scss">
-.panel-tabs {
-  justify-content: flex-start;
+.panel-tabs > a:first-child {
+  margin-right: auto;
 }
 
 .panel-tabs > a:last-child {
