@@ -151,9 +151,19 @@ export default new Vuex.Store({
       list.name = name;
     },
     selectCategory(state: any, categoryId: number) {
-      state.selectedCategoryId = state.categories.findIndex(
+      state.selectedCategoryId = categoryId;
+      if (categoryId === -1) {
+        return;
+      }
+
+      let index = state.categories.findIndex(
         (category: Category) => category.id === categoryId
       );
+
+      if (index > 3) {
+        let category = state.categories.splice(index, 1)[0];
+        state.categories.unshift(category);
+      }
     }
   },
   actions: {}
