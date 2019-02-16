@@ -1,6 +1,11 @@
 <template>
   <section class="column">
-    <h2 class="title is-2">{{ selectedListName }}</h2>
+    <h2 class="title is-2">
+      {{ selectedListName }}
+      <span class="icon">
+        <i class="fas fa-edit"></i>
+      </span>
+    </h2>
     <div class="field has-addons">
       <p class="control is-expanded">
         <input
@@ -65,4 +70,12 @@ export default class SelectedListColumn extends Vue {
 </script>
 
 <style scoped>
+h2:hover span.icon {
+  opacity: 1;
+}
+span.icon {
+  opacity: 0;
+  font-size: 1rem;
+  transition: 0.5s;
+}
 </style>
