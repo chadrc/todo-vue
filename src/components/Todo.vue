@@ -23,13 +23,13 @@
             <a>Weekly</a>
             <a>Monthly</a>
           </p>
-          <TodoListItem/>
+          <TodoListItem v-for="list in todoLists" :key="list.name" :list="list"/>
         </nav>
       </section>
       <section class="column">
         <h2 class="title is-2">Selected List</h2>
         <div>
-          <TodoItem/>
+          <TodoItem v-for="todo in selectedListTodos" :key="todo.text" :todo="todo"/>
         </div>
       </section>
     </section>
@@ -40,6 +40,7 @@
 import { Component, Prop, Vue } from "vue-property-decorator";
 import TodoItem from "./TodoItem.vue";
 import TodoListItem from "./TodoListItem.vue";
+import TodoList from "../classes/TodoList";
 
 @Component({
   components: {
@@ -47,5 +48,60 @@ import TodoListItem from "./TodoListItem.vue";
     TodoListItem
   }
 })
-export default class Todo extends Vue {}
+export default class Todo extends Vue {
+  selectedListIndex: number = 0;
+  todoLists: TodoList[] = [
+    {
+      name: "Test List 1",
+      todos: [
+        {
+          text: "Todo 1",
+          completed: false
+        },
+        {
+          text: "Todo 2",
+          completed: false
+        },
+        {
+          text: "Todo 3",
+          completed: false
+        },
+        {
+          text: "Todo 4",
+          completed: false
+        }
+      ]
+    },
+    {
+      name: "Test List 2",
+      todos: [
+        {
+          text: "Todo 5",
+          completed: false
+        },
+        {
+          text: "Todo 6",
+          completed: false
+        },
+        {
+          text: "Todo 7",
+          completed: false
+        },
+        {
+          text: "Todo 8",
+          completed: false
+        }
+      ]
+    }
+  ];
+
+  get selectedListTodos() {
+    let todoList = this.todoLists[this.selectedListIndex];
+    if (todoList) {
+      return todoList.todos;
+    }
+
+    return [];
+  }
+}
 </script>

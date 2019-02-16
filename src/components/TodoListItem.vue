@@ -3,15 +3,18 @@
     <span class="panel-icon">
       <i class="far fa-circle" aria-hidden="true"></i>
     </span>
-    bulma
+    {{ list.name }}
   </a>
 </template>
 
 <script lang="ts">
 import { Component, Prop, Vue } from "vue-property-decorator";
+import TodoList from "@/classes/TodoList";
 
 @Component
-export default class Todo extends Vue {}
+export default class Todo extends Vue {
+  @Prop(Object) list!: TodoList;
+}
 </script>
 
 <style scoped>

@@ -9,7 +9,7 @@
       </span>
     </p>
     <p class="control is-expanded">
-      <input class="input" value="first" type="text" aria-label="Text input with checkbox">
+      <input class="input" v-model="todo.text" type="text" aria-label="Text input with checkbox">
     </p>
     <p class="control">
       <button class="button is-danger" type="button">&times;</button>
@@ -19,9 +19,12 @@
 
 <script lang="ts">
 import { Component, Prop, Vue } from "vue-property-decorator";
+import Todo from "../classes/Todo";
 
 @Component
-export default class TodoItem extends Vue {}
+export default class TodoItem extends Vue {
+  @Prop(Object) todo!: Todo;
+}
 </script>
 
 <style scoped>
