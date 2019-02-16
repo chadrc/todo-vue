@@ -75,7 +75,7 @@ export default class TodoApp extends Vue {
   ];
 
   get selectedListTodos() {
-    let todoList = this.todoLists[this.selectedListIndex];
+    let todoList = this.$store.getters.selectedList;
     if (todoList) {
       return todoList.todos;
     }
@@ -84,7 +84,7 @@ export default class TodoApp extends Vue {
   }
 
   get selectedListName() {
-    let todoList = this.todoLists[this.selectedListIndex];
+    let todoList = this.$store.getters.selectedList;
     if (todoList) {
       return todoList.name;
     }
@@ -93,7 +93,7 @@ export default class TodoApp extends Vue {
   }
 
   selectList(index: number) {
-    this.selectedListIndex = index;
+    this.$store.commit("selectList", index);
   }
 }
 </script>
