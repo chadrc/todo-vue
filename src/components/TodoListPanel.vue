@@ -9,8 +9,13 @@
       </button>
     </p>
     <p class="panel-tabs">
-      <a class="is-active">All</a>
-      <a v-for="category in categoriesForDisplay" :key="category.id">{{category.name}}</a>
+      <a :class="{'is-active': activeCategoryId === -1}" @click="selectCategory(-1)">All</a>
+      <a
+        v-for="category in categoriesForDisplay"
+        :key="category.id"
+        :class="{'is-active': activeCategoryId === category.id}"
+        @click.prevent.stop="selectCategory(category.id)"
+      >{{category.name}}</a>
       <a>
         <div class="dropdown is-hoverable">
           <div class="dropdown-trigger">
@@ -25,6 +30,7 @@
                 class="dropdown-item"
                 v-for="category in remainingCategories"
                 :key="category.id"
+                @click.prevent.stop="selectCategory(category.id)"
               >{{ category.name }}</a>
               <hr class="dropdown-divider">
               <a href="#" class="dropdown-item">Edit</a>
@@ -57,12 +63,20 @@ export default class TodoListPanel extends Vue {
     this.$store.commit("startCreateList");
   }
 
+  get activeCategoryId() {
+    return this.$store.state.selectedCategoryId;
+  }
+
   get categoriesForDisplay() {
     return this.$store.state.categories.slice(0, 4);
   }
 
   get remainingCategories() {
     return this.$store.state.categories.slice(4);
+  }
+
+  selectCategory(categoryId) {
+    this.$store.commit("selectCategory", categoryId);
   }
 }
 </script>

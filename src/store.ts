@@ -13,6 +13,7 @@ export default new Vuex.Store({
     creatingList: false,
     listIndexToDelete: -1,
     editingListIndex: -1,
+    selectedCategoryId: -1,
     categories: [
       new Category("Work"),
       new Category("Daily"),
@@ -148,6 +149,11 @@ export default new Vuex.Store({
     editListName(state: any, name: string) {
       let list = state.todoLists[state.editingListIndex];
       list.name = name;
+    },
+    selectCategory(state: any, categoryId: number) {
+      state.selectedCategoryId = state.categories.findIndex(
+        (category: Category) => category.id === categoryId
+      );
     }
   },
   actions: {}
