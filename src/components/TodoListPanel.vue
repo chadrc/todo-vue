@@ -68,11 +68,16 @@ export default class TodoListPanel extends Vue {
   }
 
   get categoriesForDisplay() {
-    return this.$store.state.categories.slice(0, 4);
+    return this.$store.state.categories.slice(
+      0,
+      this.$store.getters.numberOfCategoriesToDisplay
+    );
   }
 
   get remainingCategories() {
-    return this.$store.state.categories.slice(4);
+    return this.$store.state.categories.slice(
+      this.$store.getters.numberOfCategoriesToDisplay
+    );
   }
 
   selectCategory(categoryId) {

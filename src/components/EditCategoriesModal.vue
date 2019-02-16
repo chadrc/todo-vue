@@ -53,7 +53,7 @@ export default class EditCategoriesModal extends Vue {
   }
 
   get categories() {
-    return this.$store.state.categories;
+    return this.$store.state.categories.slice(0, 10);
   }
 
   addCategory() {

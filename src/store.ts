@@ -6,6 +6,23 @@ import Category from "./classes/Category";
 
 Vue.use(Vuex);
 
+const calcNumberOfCategoriesToDisplay = (categories: Category[]) => {
+  const maxCharacters = 30;
+  let characterCount = 0;
+  let categoryCount = 0;
+  for (let category of categories) {
+    characterCount += category.name.length;
+    if (characterCount <= maxCharacters) {
+      categoryCount++;
+    } else {
+      // max exceeded
+      break;
+    }
+  }
+
+  return categoryCount;
+};
+
 export default new Vuex.Store({
   state: {
     newTodoText: "",
@@ -16,12 +33,19 @@ export default new Vuex.Store({
     selectedCategoryId: -1,
     editingCategories: false,
     categories: [
-      new Category("Work"),
-      new Category("Daily"),
-      new Category("Monthly"),
-      new Category("Yearly"),
-      new Category("Food"),
-      new Category("Movies")
+      new Category("Category 1"),
+      new Category("Category 2"),
+      new Category("Category 3"),
+      new Category("Category 4"),
+      new Category("Category 5"),
+      new Category("Category 6"),
+      new Category("Category 7"),
+      new Category("Category 8"),
+      new Category("Category 9"),
+      new Category("Category 10"),
+      new Category("Category 11"),
+      new Category("Category 12"),
+      new Category("Category 13")
     ],
     todoLists: [
       new TodoList("List 1", [new Todo("Todo 1.1"), new Todo("Todo 1.2")]),
@@ -69,6 +93,9 @@ export default new Vuex.Store({
       }
 
       return null;
+    },
+    numberOfCategoriesToDisplay(state) {
+      return calcNumberOfCategoriesToDisplay(state.categories);
     }
   },
   mutations: {
@@ -161,7 +188,7 @@ export default new Vuex.Store({
         (category: Category) => category.id === categoryId
       );
 
-      if (index > 3) {
+      if (index > calcNumberOfCategoriesToDisplay(state.categories) - 1) {
         let category = state.categories.splice(index, 1)[0];
         state.categories.unshift(category);
       }
