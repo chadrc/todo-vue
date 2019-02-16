@@ -171,6 +171,15 @@ export default new Vuex.Store({
     },
     finishEditCategories(state: any) {
       state.editingCategories = false;
+    },
+    updatedCategoryName(
+      state: any,
+      { categoryId, name }: { categoryId: number; name: string }
+    ) {
+      let category = state.categories.find(
+        (category: Category) => category.id === categoryId
+      );
+      category.name = name;
     }
   },
   actions: {}
