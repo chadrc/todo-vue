@@ -23,33 +23,13 @@
             <a>Weekly</a>
             <a>Monthly</a>
           </p>
-          <a class="panel-block is-active">
-            <span class="panel-icon">
-              <i class="far fa-circle" aria-hidden="true"></i>
-            </span>
-            bulma
-          </a>
+          <TodoListItem/>
         </nav>
       </section>
       <section class="column">
         <h2 class="title is-2">Selected List</h2>
         <div>
-          <div class="field has-addons">
-            <p class="control">
-              <span class="select">
-                <select>
-                  <option>Todo</option>
-                  <option>Done</option>
-                </select>
-              </span>
-            </p>
-            <p class="control is-expanded">
-              <input class="input" value="first" type="text" aria-label="Text input with checkbox">
-            </p>
-            <p class="control">
-              <button class="button is-danger" type="button">&times;</button>
-            </p>
-          </div>
+          <TodoItem/>
         </div>
       </section>
     </section>
@@ -58,9 +38,14 @@
 
 <script lang="ts">
 import { Component, Prop, Vue } from "vue-property-decorator";
+import TodoItem from "./TodoItem.vue";
+import TodoListItem from "./TodoListItem.vue";
 
-@Component
-export default class Todo extends Vue {
-  @Prop() private msg!: string;
-}
+@Component({
+  components: {
+    TodoItem,
+    TodoListItem
+  }
+})
+export default class Todo extends Vue {}
 </script>
