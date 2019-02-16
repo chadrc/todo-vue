@@ -23,13 +23,13 @@
             <a>Weekly</a>
             <a>Monthly</a>
           </p>
-          <TodoListItem v-for="list in todoLists" :key="list.name" :list="list"/>
+          <TodoListItem v-for="list in todoLists" :key="list.id" :list="list"/>
         </nav>
       </section>
       <section class="column">
         <h2 class="title is-2">Selected List</h2>
         <div>
-          <TodoItem v-for="todo in selectedListTodos" :key="todo.text" :todo="todo"/>
+          <TodoItem v-for="todo in selectedListTodos" :key="todo.id" :todo="todo"/>
         </div>
       </section>
     </section>
@@ -41,6 +41,7 @@ import { Component, Prop, Vue } from "vue-property-decorator";
 import TodoItem from "./TodoItem.vue";
 import TodoListItem from "./TodoListItem.vue";
 import TodoList from "../classes/TodoList";
+import genId from "../genId";
 
 @Component({
   components: {
@@ -52,42 +53,52 @@ export default class Todo extends Vue {
   selectedListIndex: number = 0;
   todoLists: TodoList[] = [
     {
+      id: genId(),
       name: "Test List 1",
       todos: [
         {
+          id: genId(),
           text: "Todo 1",
           completed: false
         },
         {
+          id: genId(),
           text: "Todo 2",
           completed: false
         },
         {
+          id: genId(),
           text: "Todo 3",
           completed: false
         },
         {
+          id: genId(),
           text: "Todo 4",
           completed: false
         }
       ]
     },
     {
+      id: genId(),
       name: "Test List 2",
       todos: [
         {
+          id: genId(),
           text: "Todo 5",
           completed: false
         },
         {
+          id: genId(),
           text: "Todo 6",
           completed: false
         },
         {
+          id: genId(),
           text: "Todo 7",
           completed: false
         },
         {
+          id: genId(),
           text: "Todo 8",
           completed: false
         }
