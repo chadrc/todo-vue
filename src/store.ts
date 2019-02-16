@@ -10,6 +10,7 @@ export default new Vuex.Store({
     newTodoText: "",
     selectedListIndex: 0,
     creatingList: false,
+    listIndexToDelete: -1,
     todoLists: [
       new TodoList("List 1", [new Todo("Todo 1.1"), new Todo("Todo 1.2")]),
       new TodoList("List 2"),
@@ -30,6 +31,22 @@ export default new Vuex.Store({
   getters: {
     selectedList(state) {
       return state.todoLists[state.selectedListIndex];
+    },
+    selectedListId(state) {
+      let list = state.todoLists[state.selectedListIndex];
+      if (list) {
+        return list.id;
+      }
+      return -1;
+    },
+    listToDelete(state) {
+      if (state.listIndexToDelete !== -1) {
+        return state.todoLists[state.listIndexToDelete];
+      }
+      return "";
+    },
+    deletingList(state) {
+      return state.listIndexToDelete !== -1;
     }
   },
   mutations: {
@@ -80,6 +97,24 @@ export default new Vuex.Store({
       let list = new TodoList(data.name);
       state.todoLists.push(list);
       state.creatingList = false;
+    },
+    deleteList(state: any, listId) {
+      let index = state.todoLists.findIndex(
+        (list: TodoList) => list.id === listId
+      );
+
+      state.listIndexToDelete = index;
+    },
+    confirmDeleteList(state: any) {
+      if (state.listIndexToDelete === state.selectedListIndex) {
+        state.selectedListIndex = -1;
+      }
+
+      state.todoLists.splice(state.listIndexToDelete, 1);
+      state.listIndexToDelete = -1;
+    },
+    cancelDelete(state: any) {
+      state.listIndexToDelete = -1;
     }
   },
   actions: {}

@@ -8,10 +8,10 @@
     </span>
     {{ list.name }}
     <p class="buttons edit">
-      <button class="button is-outlined is-small">
+      <button class="button is-outlined is-small" @click.prevent.stop="editList()">
         <i class="fas fa-edit"></i>
       </button>
-      <button class="button is-danger is-outlined is-small">
+      <button class="button is-danger is-outlined is-small" @click.prevent.stop="deleteList()">
         <i class="fas fa-trash-alt"/>
       </button>
     </p>
@@ -34,7 +34,7 @@ export default class TodoListItem extends Vue {
   }
 
   get isActive() {
-    return this.$store.getters.selectedList.id === this.listId;
+    return this.$store.getters.selectedListId === this.listId;
   }
 
   get name() {
@@ -54,6 +54,14 @@ export default class TodoListItem extends Vue {
 
   selectList() {
     this.$store.commit("selectList", this.listId);
+  }
+
+  deleteList() {
+    this.$store.commit("deleteList", this.listId);
+  }
+
+  editList() {
+    this.$store.commit("editList", this.listId);
   }
 }
 </script>

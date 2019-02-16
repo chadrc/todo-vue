@@ -11,6 +11,7 @@
       <SelectedListColumn/>
     </section>
     <CreateListModal/>
+    <ConfirmDeleteModal/>
   </section>
 </template>
 
@@ -19,12 +20,14 @@ import { Component, Prop, Vue } from "vue-property-decorator";
 import SelectedListColumn from "./SelectedListColumn.vue";
 import TodoListPanel from "./TodoListPanel.vue";
 import CreateListModal from "./CreateListModal.vue";
+import ConfirmDeleteModal from "./ConfirmDeleteModal.vue";
 
 @Component({
   components: {
     SelectedListColumn,
     TodoListPanel,
-    CreateListModal
+    CreateListModal,
+    ConfirmDeleteModal
   }
 })
 export default class TodoApp extends Vue {}
