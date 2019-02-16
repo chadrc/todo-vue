@@ -48,6 +48,23 @@ export default new Vuex.Store({
       let selectedListTodos = state.todoLists[state.selectedListIndex].todos;
       let index = selectedListTodos.findIndex((todo: Todo) => todo.id === id);
       selectedListTodos.splice(index, 1);
+    },
+    updateTodoText(
+      state: any,
+      { todoId, text }: { todoId: number; text: string }
+    ) {
+      let selectedListTodos = state.todoLists[state.selectedListIndex].todos;
+      let todo = selectedListTodos.find((todo: Todo) => todo.id === todoId);
+      todo.text = text;
+    },
+    updateTodoCompleted(
+      state: any,
+      { todoId, completed }: { todoId: number; completed: boolean }
+    ) {
+      let selectedList = state.todoLists[state.selectedListIndex];
+      let selectedListTodos = selectedList.todos;
+      let todo = selectedListTodos.find((todo: Todo) => todo.id === todoId);
+      todo.completed = completed;
     }
   },
   actions: {}

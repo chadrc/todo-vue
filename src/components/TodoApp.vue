@@ -26,7 +26,7 @@
           <TodoListItem
             v-for="(list, index) in todoLists"
             :key="list.id"
-            :list="list"
+            :listId="list.id"
             @select="selectList(index)"
           />
         </nav>
@@ -48,7 +48,7 @@
           </p>
         </div>
         <div>
-          <TodoItem v-for="todo in selectedListTodos" :key="todo.id" :todo="todo"/>
+          <TodoItem v-for="todo in selectedListTodos" :key="todo.id" :todoId="todo.id"/>
         </div>
       </section>
     </section>
