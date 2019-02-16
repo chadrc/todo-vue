@@ -15,9 +15,19 @@
       <a>Weekly</a>
       <a>Monthly</a>
       <a>
-        <span class="icon">
-          <i class="fas fa-ellipsis-h"/>
-        </span>
+        <div class="dropdown is-active">
+          <div class="dropdown-trigger">
+            <span class="icon">
+              <i class="fas fa-ellipsis-h"/>
+            </span>
+          </div>
+          <div class="dropdown-menu" id="dropdown-menu3" role="menu">
+            <div class="dropdown-content">
+              <a href="#" class="dropdown-item">Food</a>
+              <a href="#" class="dropdown-item">Movies</a>
+            </div>
+          </div>
+        </div>
       </a>
     </p>
     <TodoListItem v-for="list in todoLists" :key="list.id" :listId="list.id"/>
