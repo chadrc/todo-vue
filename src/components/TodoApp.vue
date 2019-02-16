@@ -32,7 +32,7 @@
         </nav>
       </section>
       <section class="column">
-        <h2 class="title is-2">Selected List</h2>
+        <h2 class="title is-2">{{ selectedListName }}</h2>
         <div>
           <TodoItem v-for="todo in selectedListTodos" :key="todo.id" :todo="todo"/>
         </div>
@@ -81,6 +81,15 @@ export default class TodoApp extends Vue {
     }
 
     return [];
+  }
+
+  get selectedListName() {
+    let todoList = this.todoLists[this.selectedListIndex];
+    if (todoList) {
+      return todoList.name;
+    }
+
+    return "Select a list";
   }
 
   selectList(index: number) {
