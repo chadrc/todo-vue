@@ -6,25 +6,7 @@
           <h1 class="title is-3">Todo App</h1>
           <h2 class="subtitle is-6">Always one more thing...</h2>
         </header>
-        <nav class="panel">
-          <p class="panel-heading">Lists</p>
-          <div class="panel-block">
-            <p class="control has-icons-left">
-              <input class="input is-small" type="text" placeholder="search">
-              <span class="icon is-small is-left">
-                <i class="fas fa-search" aria-hidden="true"></i>
-              </span>
-            </p>
-          </div>
-          <p class="panel-tabs">
-            <a class="is-active">All</a>
-            <a>Work</a>
-            <a>Daily</a>
-            <a>Weekly</a>
-            <a>Monthly</a>
-          </p>
-          <TodoListItem v-for="list in todoLists" :key="list.id" :listId="list.id"/>
-        </nav>
+        <TodoListPanel/>
       </section>
       <section class="column">
         <h2 class="title is-2">{{ selectedListName }}</h2>
@@ -37,7 +19,6 @@
               aria-label="Text input with checkbox"
             >
           </p>
-
           <p class="control">
             <button class="button is-primary" type="button" @click="addNewTodo()">Add</button>
           </p>
@@ -53,15 +34,14 @@
 <script lang="ts">
 import { Component, Prop, Vue } from "vue-property-decorator";
 import TodoItem from "./TodoItem.vue";
-import TodoListItem from "./TodoListItem.vue";
+import TodoListPanel from "./TodoListPanel.vue";
 import TodoList from "../classes/TodoList";
 import Todo from "../classes/Todo";
-import genId from "../genId";
 
 @Component({
   components: {
     TodoItem,
-    TodoListItem
+    TodoListPanel
   }
 })
 export default class TodoApp extends Vue {
@@ -81,10 +61,6 @@ export default class TodoApp extends Vue {
     }
 
     return "Select a list";
-  }
-
-  get todoLists() {
-    return this.$store.state.todoLists;
   }
 
   addNewTodo() {
