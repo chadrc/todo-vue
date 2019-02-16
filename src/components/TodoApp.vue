@@ -33,6 +33,20 @@
       </section>
       <section class="column">
         <h2 class="title is-2">{{ selectedListName }}</h2>
+        <div class="field has-addons">
+          <p class="control">
+            <input
+              class="input"
+              v-model="newTodoText"
+              type="text"
+              aria-label="Text input with checkbox"
+            >
+          </p>
+
+          <p class="control">
+            <button class="button is-primary" type="button" @click="addNewTodo()">Add</button>
+          </p>
+        </div>
         <div>
           <TodoItem v-for="todo in selectedListTodos" :key="todo.id" :todo="todo"/>
         </div>
@@ -56,23 +70,7 @@ import genId from "../genId";
   }
 })
 export default class TodoApp extends Vue {
-  selectedListIndex: number = 0;
-  todoLists: TodoList[] = [
-    new TodoList("List 1", [new Todo("Todo 1.1"), new Todo("Todo 1.2")]),
-    new TodoList("List 2"),
-    new TodoList("List 3", [
-      new Todo("Todo 3.1"),
-      new Todo("Todo 3.2"),
-      new Todo("Todo 3.3"),
-      new Todo("Todo 3.4"),
-      new Todo("Todo 3.5")
-    ]),
-    new TodoList("List 4", [
-      new Todo("Todo 4.1"),
-      new Todo("Todo 4.2"),
-      new Todo("Todo 4.3")
-    ])
-  ];
+  newTodoText: String = "";
 
   get selectedListTodos() {
     let todoList = this.$store.getters.selectedList;
@@ -92,8 +90,16 @@ export default class TodoApp extends Vue {
     return "Select a list";
   }
 
+  get todoLists() {
+    return this.$store.state.todoLists;
+  }
+
   selectList(index: number) {
     this.$store.commit("selectList", index);
+  }
+
+  addNewTodo() {
+    this.$store.commit("addTodoToSelectedList", new Todo(this.newTodoText));
   }
 }
 </script>

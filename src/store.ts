@@ -33,6 +33,10 @@ export default new Vuex.Store({
   mutations: {
     selectList(state: any, index: number) {
       state.selectedListIndex = index;
+    },
+    addTodoToSelectedList(state: any, todo: Todo) {
+      let selectedList = state.todoLists[state.selectedListIndex];
+      selectedList.todos.push(todo);
     }
   },
   actions: {}
