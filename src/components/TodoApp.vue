@@ -34,7 +34,7 @@
       <section class="column">
         <h2 class="title is-2">{{ selectedListName }}</h2>
         <div class="field has-addons">
-          <p class="control">
+          <p class="control is-expanded">
             <input
               class="input"
               v-model="newTodoText"

@@ -12,7 +12,7 @@
       <input class="input" v-model="todo.text" type="text" aria-label="Text input with checkbox">
     </p>
     <p class="control">
-      <button class="button is-danger" type="button">&times;</button>
+      <button class="button is-danger" type="button" @click="removeItem()">&times;</button>
     </p>
   </div>
 </template>
@@ -24,6 +24,10 @@ import Todo from "../classes/Todo";
 @Component
 export default class TodoItem extends Vue {
   @Prop(Todo) todo!: Todo;
+
+  removeItem() {
+    this.$store.commit("removeTodoFromCurrentList", this.todo.id);
+  }
 }
 </script>
 
