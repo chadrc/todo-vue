@@ -2,6 +2,7 @@ import Vue from "vue";
 import Vuex from "vuex";
 import TodoList from "./classes/TodoList";
 import Todo from "./classes/Todo";
+import Category from "./classes/Category";
 
 Vue.use(Vuex);
 
@@ -12,6 +13,14 @@ export default new Vuex.Store({
     creatingList: false,
     listIndexToDelete: -1,
     editingListIndex: -1,
+    categories: [
+      new Category("Work"),
+      new Category("Daily"),
+      new Category("Monthly"),
+      new Category("Yearly"),
+      new Category("Food"),
+      new Category("Movies")
+    ],
     todoLists: [
       new TodoList("List 1", [new Todo("Todo 1.1"), new Todo("Todo 1.2")]),
       new TodoList("List 2"),

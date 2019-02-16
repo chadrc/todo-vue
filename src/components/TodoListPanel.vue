@@ -10,10 +10,7 @@
     </p>
     <p class="panel-tabs">
       <a class="is-active">All</a>
-      <a>Work</a>
-      <a>Daily</a>
-      <a>Weekly</a>
-      <a>Monthly</a>
+      <a v-for="category in categoriesForDisplay" :key="category.id">{{category.name}}</a>
       <a>
         <div class="dropdown is-hoverable">
           <div class="dropdown-trigger">
@@ -54,6 +51,10 @@ export default class TodoListPanel extends Vue {
 
   startCreateList() {
     this.$store.commit("startCreateList");
+  }
+
+  get categoriesForDisplay() {
+    return this.$store.state.categories.slice(0, 4);
   }
 }
 </script>
