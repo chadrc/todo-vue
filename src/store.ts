@@ -14,6 +14,7 @@ export default new Vuex.Store({
     listIndexToDelete: -1,
     editingListIndex: -1,
     selectedCategoryId: -1,
+    editingCategories: false,
     categories: [
       new Category("Work"),
       new Category("Daily"),
@@ -164,6 +165,12 @@ export default new Vuex.Store({
         let category = state.categories.splice(index, 1)[0];
         state.categories.unshift(category);
       }
+    },
+    startEditCategories(state: any) {
+      state.editingCategories = true;
+    },
+    finishEditCategories(state: any) {
+      state.editingCategories = false;
     }
   },
   actions: {}

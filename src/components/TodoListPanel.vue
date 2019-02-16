@@ -33,7 +33,7 @@
                 @click.prevent.stop="selectCategory(category.id)"
               >{{ category.name }}</a>
               <hr class="dropdown-divider">
-              <a href="#" class="dropdown-item">Edit</a>
+              <a href="#" class="dropdown-item" @click="startEditCategories()">Edit</a>
             </div>
           </div>
         </div>
@@ -77,6 +77,10 @@ export default class TodoListPanel extends Vue {
 
   selectCategory(categoryId) {
     this.$store.commit("selectCategory", categoryId);
+  }
+
+  startEditCategories() {
+    this.$store.commit("startEditCategories");
   }
 }
 </script>

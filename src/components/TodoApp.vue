@@ -13,6 +13,7 @@
     <CreateListModal/>
     <ConfirmDeleteModal/>
     <EditListModal/>
+    <EditCategoriesModal/>
   </section>
 </template>
 
@@ -22,6 +23,7 @@ import SelectedListColumn from "./SelectedListColumn.vue";
 import TodoListPanel from "./TodoListPanel.vue";
 import CreateListModal from "./CreateListModal.vue";
 import EditListModal from "./EditListModal.vue";
+import EditCategoriesModal from "./EditCategoriesModal.vue";
 import ConfirmDeleteModal from "./ConfirmDeleteModal.vue";
 
 @Component({
@@ -30,8 +32,15 @@ import ConfirmDeleteModal from "./ConfirmDeleteModal.vue";
     TodoListPanel,
     CreateListModal,
     ConfirmDeleteModal,
-    EditListModal
+    EditListModal,
+    EditCategoriesModal
   }
 })
 export default class TodoApp extends Vue {}
 </script>
+
+<style>
+footer.modal-card-foot {
+  justify-content: flex-end;
+}
+</style>
