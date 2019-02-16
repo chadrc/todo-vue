@@ -15,7 +15,7 @@
       <a>Weekly</a>
       <a>Monthly</a>
       <a>
-        <div class="dropdown is-active">
+        <div class="dropdown is-hoverable">
           <div class="dropdown-trigger">
             <span class="icon">
               <i class="fas fa-ellipsis-h"/>
@@ -25,6 +25,8 @@
             <div class="dropdown-content">
               <a href="#" class="dropdown-item">Food</a>
               <a href="#" class="dropdown-item">Movies</a>
+              <hr class="dropdown-divider">
+              <a href="#" class="dropdown-item">View All</a>
             </div>
           </div>
         </div>
@@ -56,12 +58,16 @@ export default class TodoListPanel extends Vue {
 }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 .panel-tabs {
   justify-content: flex-start;
 }
 
 .panel-tabs > a:last-child {
   margin-left: auto;
+}
+
+.panel-tabs a.dropdown-item {
+  border-bottom: none;
 }
 </style>
