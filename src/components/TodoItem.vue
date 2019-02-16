@@ -2,9 +2,9 @@
   <div class="field has-addons">
     <p class="control">
       <span class="select">
-        <select>
-          <option>Todo</option>
-          <option>Done</option>
+        <select v-model="todo.completed">
+          <option :value="false">Todo</option>
+          <option :value="true">Done</option>
         </select>
       </span>
     </p>
