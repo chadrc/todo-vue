@@ -10,7 +10,7 @@
         <p>Are you sure you want to delete list "{{ listToDeleteName }}"</p>
       </section>
       <footer class="modal-card-foot">
-        <button class="button is-danger is-pulled-right" @click="confirmDelete()">Confirm</button>
+        <button class="button is-danger" @click="confirmDelete()">Confirm</button>
       </footer>
     </div>
   </div>
@@ -40,4 +40,7 @@ export default class ConfirmDeleteModal extends Vue {
 </script>
 
 <style scoped>
+footer.modal-card-foot {
+  justify-content: flex-end;
+}
 </style>

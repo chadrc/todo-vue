@@ -12,6 +12,7 @@
     </section>
     <CreateListModal/>
     <ConfirmDeleteModal/>
+    <EditListModal/>
   </section>
 </template>
 
@@ -20,6 +21,7 @@ import { Component, Prop, Vue } from "vue-property-decorator";
 import SelectedListColumn from "./SelectedListColumn.vue";
 import TodoListPanel from "./TodoListPanel.vue";
 import CreateListModal from "./CreateListModal.vue";
+import EditListModal from "./EditListModal.vue";
 import ConfirmDeleteModal from "./ConfirmDeleteModal.vue";
 
 @Component({
@@ -27,7 +29,8 @@ import ConfirmDeleteModal from "./ConfirmDeleteModal.vue";
     SelectedListColumn,
     TodoListPanel,
     CreateListModal,
-    ConfirmDeleteModal
+    ConfirmDeleteModal,
+    EditListModal
   }
 })
 export default class TodoApp extends Vue {}
