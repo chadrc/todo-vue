@@ -28,7 +28,18 @@
         />
       </section>
       <footer class="modal-card-foot">
-        <button class="button is-info is-pulled-right" @click="finishEditCategories()">Done</button>
+        <nav class="pagination" role="navigation" aria-label="pagination">
+          <ul class="pagination-list">
+            <li v-for="pageNumber in categoryPageCount" :key="pageNumber">
+              <a
+                class="pagination-link"
+                :class="{'is-current': currentCategoryPage === pageNumber}"
+                @click.prevent.stop="selectCategoryPage(pageNumber)"
+              >{{ pageNumber }}</a>
+            </li>
+          </ul>
+        </nav>
+        <!-- <button class="button is-info is-pulled-right" @click="finishEditCategories()">Done</button> -->
       </footer>
     </div>
   </div>
@@ -53,15 +64,41 @@ export default class EditCategoriesModal extends Vue {
   }
 
   get categories() {
-    return this.$store.state.categories.slice(0, 10);
+    let currentPageIndex = this.$store.state.currentCategoryPage - 1;
+    let start = currentPageIndex * 10;
+    let end = start + 10;
+    return this.$store.state.categories.slice(start, end);
+  }
+
+  get categoryPageCount() {
+    return Math.ceil(this.$store.state.categories.length / 10);
+  }
+
+  get currentCategoryPage() {
+    return this.$store.state.currentCategoryPage;
   }
 
   addCategory() {
     this.$store.commit("addCategory", this.newCategoryName);
     this.newCategoryName = "";
   }
+
+  selectCategoryPage(pageNumber: number) {
+    this.$store.commit("setCategoryPage", pageNumber);
+  }
 }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
+.modal.is-top {
+  justify-content: normal;
+
+  > .modal-card {
+    margin-top: 50px;
+  }
+}
+
+footer.modal-card-foot {
+  justify-content: center;
+}
 </style>

@@ -32,6 +32,7 @@ export default new Vuex.Store({
     editingListIndex: -1,
     selectedCategoryId: -1,
     editingCategories: false,
+    currentCategoryPage: 1,
     categories: [
       new Category("Category 1"),
       new Category("Category 2"),
@@ -211,6 +212,9 @@ export default new Vuex.Store({
     addCategory(state: any, name: string) {
       let category = new Category(name);
       state.categories.push(category);
+    },
+    setCategoryPage(state: any, pageNumber: number) {
+      state.currentCategoryPage = pageNumber;
     }
   },
   actions: {}

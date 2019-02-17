@@ -42,4 +42,7 @@ export default class CreateListModal extends Vue {
 </script>
 
 <style scoped>
+footer.modal-card-foot {
+  justify-content: flex-end;
+}
 </style>

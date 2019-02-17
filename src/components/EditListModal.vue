@@ -53,4 +53,7 @@ export default class EditListModal extends Vue {
 </script>
 
 <style scoped>
+footer.modal-card-foot {
+  justify-content: flex-end;
+}
 </style>
