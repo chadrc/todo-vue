@@ -4,7 +4,7 @@
       <section class="column is-one-third">
         <header class="content">
           <h1 class="title is-3">Todo App</h1>
-          <h2 class="subtitle is-6">Always one more thing...</h2>
+          <h2 class="subtitle is-6">So many things to do.</h2>
         </header>
         <TodoListPanel/>
       </section>
