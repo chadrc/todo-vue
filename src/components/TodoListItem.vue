@@ -1,10 +1,13 @@
 <template>
   <a class="panel-block" :class="{'is-active': isActive}" @click.prevent="selectList()">
-    <span class="panel-icon" v-show="!allComplete">
+    <span class="panel-icon" v-show="!allComplete && hasItems">
       <i class="far fa-circle has-text-info" aria-hidden="true"></i>
     </span>
-    <span class="panel-icon" v-show="allComplete">
+    <span class="panel-icon" v-show="allComplete && hasItems">
       <i class="fas fa-circle has-text-success" aria-hidden="true"></i>
+    </span>
+    <span class="panel-icon" v-show="!hasItems">
+      <i class="fas fa-minus-circle" aria-hidden="true"></i>
     </span>
     {{ list.name }}
     <p class="buttons edit">
@@ -50,6 +53,10 @@ export default class TodoListItem extends Vue {
       }
     }
     return allComplete;
+  }
+
+  get hasItems() {
+    return this.list.todos.length > 0;
   }
 
   selectList() {
