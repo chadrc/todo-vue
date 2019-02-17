@@ -11,7 +11,7 @@
           <p class="control">
             <span class="select">
               <select v-model="newListCategory">
-                <option :value="undefined">Category</option>
+                <option :value="null">Category</option>
                 <option
                   v-for="category in categories"
                   :key="category.id"
@@ -42,7 +42,7 @@ import { Component, Vue, Prop } from "vue-property-decorator";
 @Component
 export default class CreateListModal extends Vue {
   newListName = "";
-  newListCategory?: number;
+  newListCategory: number | null = null;
 
   get isActive() {
     return this.$store.state.creatingList;

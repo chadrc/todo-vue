@@ -43,7 +43,7 @@
   </nav>
 </template>
 
-<script>
+<script lang="ts">
 import { Component, Prop, Vue } from "vue-property-decorator";
 import TodoListItem from "./TodoListItem.vue";
 import TodoList from "../classes/TodoList";
@@ -56,6 +56,12 @@ import Todo from "../classes/Todo";
 })
 export default class TodoListPanel extends Vue {
   get todoLists() {
+    let categoryId = this.$store.state.selectedCategoryId;
+    if (categoryId !== -1) {
+      return this.$store.state.todoLists.filter(
+        (list: TodoList) => list.categoryId === categoryId
+      );
+    }
     return this.$store.state.todoLists;
   }
 
