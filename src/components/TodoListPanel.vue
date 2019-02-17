@@ -86,7 +86,7 @@ export default class TodoListPanel extends Vue {
     );
   }
 
-  selectCategory(categoryId) {
+  selectCategory(categoryId: number) {
     this.$store.commit("selectCategory", categoryId);
   }
 
