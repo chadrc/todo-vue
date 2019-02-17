@@ -49,16 +49,16 @@ export default new Vuex.Store({
       new Category("Category 13")
     ],
     todoLists: [
-      new TodoList("List 1", [new Todo("Todo 1.1"), new Todo("Todo 1.2")]),
-      new TodoList("List 2"),
-      new TodoList("List 3", [
+      new TodoList("List 1", 4, [new Todo("Todo 1.1"), new Todo("Todo 1.2")]),
+      new TodoList("List 2", 5),
+      new TodoList("List 3", 9, [
         new Todo("Todo 3.1"),
         new Todo("Todo 3.2"),
         new Todo("Todo 3.3"),
         new Todo("Todo 3.4"),
         new Todo("Todo 3.5")
       ]),
-      new TodoList("List 4", [
+      new TodoList("List 4", 2, [
         new Todo("Todo 4.1"),
         new Todo("Todo 4.2"),
         new Todo("Todo 4.3")
@@ -143,8 +143,11 @@ export default new Vuex.Store({
     cancelCreateList(state: any) {
       state.creatingList = false;
     },
-    createList(state: any, data: { name: string }) {
-      let list = new TodoList(data.name);
+    createList(
+      state: any,
+      { name, categoryId }: { name: string; categoryId: number }
+    ) {
+      let list = new TodoList(name, categoryId);
       state.todoLists.push(list);
       state.creatingList = false;
     },
