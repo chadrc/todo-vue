@@ -14,6 +14,7 @@
               v-model="newCategoryName"
               type="text"
               placeholder="New Category"
+              @keyup.enter="addCategory()"
               aria-label="Text input with checkbox"
             >
           </p>

@@ -8,7 +8,13 @@
       </header>
       <section class="modal-card-body">
         <div class="control">
-          <input class="input" type="text" placeholder="List Name" v-model="listName">
+          <input
+            class="input"
+            type="text"
+            placeholder="List Name"
+            v-model="listName"
+            @keyup.enter="finishEditList()"
+          >
         </div>
       </section>
       <footer class="modal-card-foot">

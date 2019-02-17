@@ -8,6 +8,7 @@
           v-model="newTodoText"
           type="text"
           placeholder="New Todo"
+          @keyup.enter="addNewTodo()"
           aria-label="Text input with checkbox"
         >
       </p>

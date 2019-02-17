@@ -10,7 +10,7 @@
         <div class="field has-addons">
           <p class="control">
             <span class="select">
-              <select v-model="newListCategory">
+              <select v-model="newListCategory" @keyup.enter="createList()">
                 <option :value="null">Category</option>
                 <option
                   v-for="category in categories"
@@ -21,7 +21,13 @@
             </span>
           </p>
           <div class="control is-expanded">
-            <input class="input" type="text" placeholder="List Name" v-model="newListName">
+            <input
+              class="input"
+              type="text"
+              placeholder="List Name"
+              v-model="newListName"
+              @keyup.enter="createList()"
+            >
           </div>
         </div>
       </section>
